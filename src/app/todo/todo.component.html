@@ -1,0 +1,22 @@
+<main ng-controller="itemController">
+    <section class="form-container">
+      <h1>TODO List</h1>
+      <p>A Place to store your todos</p>
+      <form action="">
+        <input type="text" name="filter" placeholder="Filter your to-dos" />
+      </form>
+      <ol>
+        <li *ngFor="let item of todo; index as i">
+          <div class="todo-container">
+            <button *ngIf="!item.completed" class="complete-button" ng-click="completedTask()">Complete</button>
+            <p class="task" [ngClass]="{completed: item.completed}">{{item.task}}</p>
+            <button ng-click="removeTask(i)">X</button>
+          </div>
+        </li>
+      </ol>
+      <form action="">
+          <input type="text" name="todo" placeholder="Add Your to-do" />
+          <button ng-click="addTask()" class="submit-button">Add</button>
+      </form>
+    </section>
+</main>
